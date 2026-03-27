@@ -83,7 +83,7 @@
             sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
-        adj_layer {
+        utility_layer {
             /* ADJUST
  * -------------------------------------------------------------------------------------------------------------------------------------
  * |       | QWERTY| DVORAK| COLEMK|       |       |-----------------------------------|       |  F11  |  F12  |Prt Scr|EP_OFF | EP_ON |
