@@ -5,6 +5,9 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
+      # Temporarily pinned to v0.3-branch (Zephyr 3.5) to avoid breaking changes 
+      # from the Zephyr 4.1 Hardware Model v2 (HWMv2) upgrade in the main branch.
+      # To migrate later, the out-of-tree shield definitions must be updated to HWMv2.
       revision: v0.3-branch
       import: app/west.yml
   self:
