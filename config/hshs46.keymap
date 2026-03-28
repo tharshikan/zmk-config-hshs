@@ -20,6 +20,8 @@
 #define CMD_NAV_R_L 7
 #define CMD_NAV_L_L 8
 #define LAUNCHER_L 9
+#define CMD_NUM_L 10
+#define CMD_NUM_L2 11
 #define Undo   LC(Z)
 #define Cut    LC(X)
 #define Copy   LC(C)
@@ -164,6 +166,28 @@
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
+
+        command_num_lay {
+            bindings = <
+&trans  &kp F1                &kp F2                &kp F3      &kp F4      &kp F5                                        &kp F6      &kp F7      &kp F8      &kp F9      &kp F20     &kp F11
+&trans  &kp LG(N1)            &kp LG(N2)            &kp LG(N3)  &kp LG(N4)  &kp LG(N5)                                    &kp LG(N6)  &kp LG(N7)  &kp LG(N8)  &kp LG(N9)  &kp LG(N0)  &trans
+&trans  &kp LG(LS(NUMBER_4))  &kp LS(LG(NUMBER_5))  &trans      &trans      &trans      &trans                    &trans  &kp F21     &kp F10     &kp F11     &kp F12     &trans      &trans
+                                                    &trans      &trans      &trans      &trans                    &trans  &trans      &trans      &trans
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+        };
+
+        command_num_lay2 {
+            bindings = <
+&trans  &kp RS(RA(RC(F3)))   &kp LG(N4)  &kp LG(N5)  &kp LG(N6)  &kp F14                                      &kp LS(LG(N5))        &kp F1   &kp F2   &kp F5   &kp LG(RS(NUMBER_2))  &trans
+&trans  &kp LG(N0)           &kp LG(N1)  &kp LG(N2)  &kp LG(N3)  &kp F15                                      &kp LS(LG(NUMBER_4))  &kp F10  &kp F11  &kp F12  &kp RS(LG(N0))        &trans
+&trans  &kp RS(RA(RC(F23)))  &kp LG(N7)  &kp LG(N8)  &kp LG(N9)  &kp F16  &trans                      &trans  &kp RS(LG(NUMBER_4))  &kp F7   &kp F8   &kp F9   &kp RS(LG(NUMBER_3))  &trans
+                                         &trans      &trans      &trans   &trans                      &trans  &trans                &trans   &trans
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
     };
 };
