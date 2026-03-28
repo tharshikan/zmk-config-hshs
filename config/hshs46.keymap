@@ -24,6 +24,17 @@
 #define Redo   LC(Y)
 
 / {
+    macros {
+        macro_thin_arrow: macro_thin_arrow {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings = <&macro_release &kp LSHFT &kp RSHFT>, <&kp MINUS &kp GT>;
+            display-name = "Thin Arrow";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -66,19 +77,11 @@
         };
 
         sym_layer {
-            /* SYM
- * -------------------------------------------------------------------------------------------------------------------------------------
- * | INS   |   !   |   @   |   #   |   $   |   %   |-----------------------------------|   ^   |   &   |   *   |   (   |   )   | BSPC  |
- * |       |   \   |   -   |   =   |   [   |   ]   |-----------------------------------| HOME  | Shift | Ctrl  | Alt   | Gui   | END   |
- * | Ctrl  |   |   |   _   |   +   |   {   |   }   |SkAltGr|-------------------| MENU  | Mute  | Vol-  | Vol+  | Play  |       | Ctrl  |
- *                                 |       |       |       |  ADJ_L |---|      |       |       |       |
- */
-
             bindings = <
-&kp INS  &kp EXCL  &kp AT     &kp HASH   &kp DOLLAR  &kp PERCENT                                      &kp CARET   &kp AMPS      &kp ASTRK     &kp LPAR  &kp RPAR  &kp DEL
-&none    &kp BSLH  &kp MINUS  &kp EQUAL  &kp LBKT    &kp RBKT                                         &kp HOME    &kp RSHFT     &kp RCTRL     &kp LALT  &kp RGUI  &kp END
-&trans   &kp PIPE  &kp UNDER  &kp PLUS   &kp LBRC    &kp RBRC     &sk RALT                 &kp K_APP  &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PP  &none     &kp RCTRL
-                                         &trans      &trans       &trans    &mo 3  &trans  &trans     &trans      &trans
+&kp LS(GRAVE)  &kp GRAVE       &kp LESS_THAN  &kp GREATER_THAN  &kp MINUS          &kp PIPE                                       &kp CARET   &kp LEFT_BRACE    &kp RIGHT_BRACE        &kp DOLLAR     &kp PIPE           &macro_thin_arrow
+&trans         &kp EXCLAMATION  &kp ASTERISK   &kp UNDERSCORE    &kp EQUAL          &kp AMPERSAND                                  &kp HASH    &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp SEMICOLON  &kp DOUBLE_QUOTES  &kp DOUBLE_QUOTES
+&trans         &kp SLASH        &kp PLUS       &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp PERCENT  &sk RALT               &kp K_APP  &kp AT_SIGN &kp COLON         &kp COMMA              &kp SQT        &kp DOT            &kp SINGLE_QUOTE
+                                               &trans            &trans             &trans       &mo 3     &trans       &trans     &trans      &trans
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
