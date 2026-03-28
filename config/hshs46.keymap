@@ -19,6 +19,7 @@
 #define NUM_L    6
 #define CMD_NAV_R_L 7
 #define CMD_NAV_L_L 8
+#define LAUNCHER_L 9
 #define Undo   LC(Z)
 #define Cut    LC(X)
 #define Copy   LC(C)
@@ -149,6 +150,17 @@
 &kp LG(ESC)    &kp LG(A)  &kp LG(Z)      &kp LG(C)  &kp LG(V)  &kp LG(DOT)                                      &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW   &kp RIGHT_ARROW  &kp LG(S)  &trans
 &kp LG(LSHFT)  &kp LG(Z)  &kp LG(COMMA)  &kp LG(C)  &kp LG(V)  &kp LG(LA(I))  &trans                     &trans &kp LG(N)       &kp LG(M)       &kp LG(W)      &kp LG(LS(N))    &kp LG(F)  &kp LG(RSHFT)
                                          &trans     &trans     &trans         &trans  &trans      &trans &trans &trans
+            >;
+
+            sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
+
+        launcher_layer {
+            bindings = <
+&trans  &kp LG(LA(ESC))        &kp LG(LA(LC(LS(P))))  &kp LC(UP)    &kp LG(LA(LC(LS(Y))))  &trans                                         &kp LS(LA(LC(LG(K))))  &kp LC(LEFT)           &kp LC(UP)             &kp LC(RIGHT)          &kp LG(LA(LC(LS(B))))  &trans
+&trans  &kp LG(LA(LC(LS(A))))  &kp LG(LA(LC(LS(O))))  &kp LC(LEFT)  &kp LC(RIGHT)          &kp LG(LA(LC(LS(G))))                          &kp LG(LA(LC(LS(D))))  &kp LG(LA(LC(LS(H))))  &kp LG(LA(LC(LS(T))))  &kp LG(LA(LC(LS(N))))  &kp LG(LA(LC(LS(S))))  &trans
+&trans  &kp LG(LS(Q))          &kp LG(LA(LC(LS(J))))  &trans        &trans                 &trans                 &trans           &trans &kp LG(NUMBER_0)       &kp LG(MINUS)          &kp LG(PLUS)           &kp RG(KP_PLUS)        &kp PERIOD             &trans
+                                                      &trans        &trans                 &trans                 &trans           &trans &trans                 &trans                 &trans
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
