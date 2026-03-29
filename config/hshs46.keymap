@@ -382,7 +382,7 @@
 
         dvorak_layer {
             bindings = <
-&kp QUESTION  &kp Q                       &kp P                      &kp U                     &kp P                &kp SEMI                                                &kp K     &kp F                 &kp L                      &kp R                       &kp B                        &smart_bspc2
+&kp QUESTION  &kp Q                       &kp P                      &kp U                     &kp Y                &kp SEMI                                                &kp K     &kp F                 &kp L                      &kp R                       &kp B                        &smart_bspc2
 &kp ESCAPE    &hrm_left_pinky LGUI A      &hrm_left_ring 5 O         &hrm_left_middle LSHFT E  &hrm_left_index 1 I  &kp G                                                   &kp D     &hrm_right_index 1 H  &hrm_right_middle RSHFT T  &hrm_right_ring 2 N         &hrm_right_pinky RGUI S      &kp TAB
 &kp LCTRL     &hrm_left_pinky_bottom 2 X  &hrm_left_ring_bottom 7 J  &kp COMMA                 &kp EQUAL            &kp APOS  &kp ESC                      &caps_word       &kp B     &kp M                 &kp W                      &hrm_right_ring_bottom 7 V  &hrm_right_pinky_bottom 5 Z  &kp SLASH
                                                                                                &mo 8                &kp LALT  &smart_bspc2  &mo 10  &mo 1  &sp_nav CMD_NAV_R_L SPACE  &kp LALT  &mo 8
