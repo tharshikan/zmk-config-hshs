@@ -218,7 +218,7 @@
             compatible = "zmk,behavior-mod-morph";
             label = "SMART_BACKSPACE_2";
             #binding-cells = <0>;
-            bindings = <&bs_nav CMD_NAV_L_L BSPC>, <&kp LA(BSPC)>;
+            bindings = <&bs_nav 9 BSPC>, <&kp LA(BSPC)>;
 
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
@@ -292,7 +292,7 @@
             #binding-cells = <0>;
             wait-ms = <5>;
             tap-ms = <5>;
-            bindings = <&mac_sel_word>, <&tog VIS_NAV_L>;
+            bindings = <&mac_sel_word &tog VIS_NAV_L>;
             display-name = "Visual Mode Enter";
         };
 
@@ -302,7 +302,7 @@
             #binding-cells = <0>;
             wait-ms = <5>;
             tap-ms = <5>;
-            bindings = <&kp LG(X)>, <&kp LS(N9)>, <&kp LG(V)>, <&kp LS(N0)>, <&tog VIS_NAV_L>;
+            bindings = <&kp LG(X) &kp LS(N9) &kp LG(V) &kp LS(N0) &tog VIS_NAV_L>;
             display-name = "Visual Wrap Parens ()";
         };
 
@@ -312,68 +312,8 @@
             #binding-cells = <0>;
             wait-ms = <5>;
             tap-ms = <5>;
-            bindings = <&kp LG(X)>, <&kp LBKT>, <&kp LG(V)>, <&kp RBKT>, <&tog VIS_NAV_L>;
+            bindings = <&kp LG(X) &kp LBKT &kp LG(V) &kp RBKT &tog VIS_NAV_L>;
             display-name = "Visual Wrap Brackets []";
-        };
-
-        macro_vis_wrap_braces: macro_vis_wrap_braces {
-            compatible = "zmk,behavior-macro";
-            label = "macro_vis_wrap_braces";
-            #binding-cells = <0>;
-            wait-ms = <5>;
-            tap-ms = <5>;
-            bindings = <&kp LG(X)>, <&kp LS(LBKT)>, <&kp LG(V)>, <&kp LS(RBKT)>, <&tog VIS_NAV_L>;
-            display-name = "Visual Wrap Braces {}";
-        };
-
-        macro_vis_wrap_dquotes: macro_vis_wrap_dquotes {
-            compatible = "zmk,behavior-macro";
-            label = "macro_vis_wrap_dquotes";
-            #binding-cells = <0>;
-            wait-ms = <5>;
-            tap-ms = <5>;
-            bindings = <&kp LG(X)>, <&kp LS(SQT)>, <&kp LG(V)>, <&kp LS(SQT)>, <&tog VIS_NAV_L>;
-            display-name = "Visual Wrap Quotes DQT";
-        };
-
-        macro_vis_copy: macro_vis_copy {
-            compatible = "zmk,behavior-macro";
-            label = "macro_vis_copy";
-            #binding-cells = <0>;
-            wait-ms = <5>;
-            tap-ms = <5>;
-            bindings = <&kp LG(C)>, <&tog VIS_NAV_L>;
-            display-name = "Visual Copy & Exit";
-        };
-
-        macro_vis_cut: macro_vis_cut {
-            compatible = "zmk,behavior-macro";
-            label = "macro_vis_cut";
-            #binding-cells = <0>;
-            wait-ms = <5>;
-            tap-ms = <5>;
-            bindings = <&kp LG(X)>, <&tog VIS_NAV_L>;
-            display-name = "Visual Cut & Exit";
-        };
-
-        macro_insert_line_below: macro_insert_line_below {
-            compatible = "zmk,behavior-macro";
-            label = "macro_insert_line_below";
-            #binding-cells = <0>;
-            wait-ms = <5>;
-            tap-ms = <5>;
-            bindings = <&kp LG(RIGHT) &kp ENTER>;
-            display-name = "Insert Line Below";
-        };
-
-        macro_insert_line_above: macro_insert_line_above {
-            compatible = "zmk,behavior-macro";
-            label = "macro_insert_line_above";
-            #binding-cells = <0>;
-            wait-ms = <5>;
-            tap-ms = <5>;
-            bindings = <&kp LG(LEFT) &kp ENTER &kp UP>;
-            display-name = "Insert Line Above";
         };
     };
 
@@ -382,10 +322,10 @@
 
         dvorak_layer {
             bindings = <
-&kp GRAVE   &kp Q                       &kp P                      &kp U                     &kp P                &kp SEMI                                               &kp K     &kp F                 &kp L                      &kp R                       &kp B                        &smart_bspc2
-&kp ESCAPE  &hrm_left_pinky LGUI A      &hrm_left_ring 10 O        &hrm_left_middle LSHFT E  &hrm_left_index 2 I  &kp G                                                  &kp D     &hrm_right_index 2 H  &hrm_right_middle RSHFT T  &hrm_right_ring 4 N         &hrm_right_pinky RGUI S      &kp TAB
-&kp LCTRL   &hrm_left_pinky_bottom 4 X  &hrm_left_ring_bottom 0 J  &kp COMMA                 &kp EQUAL            &kp APOS  &kp ESC                     &caps_word       &kp B     &kp M                 &kp W                      &hrm_right_ring_bottom 0 V  &hrm_right_pinky_bottom 7 Z  &kp SLASH
-                                                                                             &mo 7                &kp LALT  &smart_bspc2  &mo 9  &mo 1  &sp_nav 5 SPACE  &kp LALT  &mo 7
+&kp QUESTION  &kp Q                       &kp P                      &kp U                     &kp P                &kp SEMI                                                &kp K     &kp F                 &kp L                      &kp R                       &kp B                        &smart_bspc2
+&kp ESCAPE    &hrm_left_pinky LGUI A      &hrm_left_ring 5 O         &hrm_left_middle LSHFT E  &hrm_left_index 1 I  &kp G                                                   &kp D     &hrm_right_index 1 H  &hrm_right_middle RSHFT T  &hrm_right_ring 2 N         &hrm_right_pinky RGUI S      &kp TAB
+&kp LCTRL     &hrm_left_pinky_bottom 2 X  &hrm_left_ring_bottom 7 J  &kp COMMA                 &kp EQUAL            &kp APOS  &kp ESC                      &caps_word       &kp B     &kp M                 &kp W                      &hrm_right_ring_bottom 7 V  &hrm_right_pinky_bottom 5 Z  &kp SLASH
+                                                                                               &mo 8                &kp LALT  &smart_bspc2  &mo 10  &mo 1  &sp_nav 6 SPACE  &kp LALT  &mo 8
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -396,7 +336,7 @@
 &kp LS(GRAVE)  &kp GRAVE        &kp LESS_THAN  &kp GREATER_THAN  &kp MINUS          &kp PIPE                                           &kp CARET    &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp DOLLAR     &kp PIPE           &macro_thin_arrow
 &trans         &kp EXCLAMATION  &kp ASTERISK   &kp UNDERSCORE    &kp EQUAL          &kp AMPERSAND                                      &kp HASH     &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp SEMICOLON  &kp DOUBLE_QUOTES  &kp DOUBLE_QUOTES
 &trans         &kp SLASH        &kp PLUS       &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp PERCENT    &sk RALT                 &kp K_APP  &kp AT_SIGN  &kp COLON             &kp COMMA              &kp SQT        &kp DOT            &kp SINGLE_QUOTE
-                                                                 &trans             &trans         &trans    &mo 7  &trans  &trans     &trans       &trans
+                                                                 &trans             &trans         &trans    &mo 8  &trans  &trans     &trans       &trans
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -433,6 +373,17 @@
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
+
+        text_navigation {
+            bindings = <
+&kp LS(LG(RIGHT))  &kp LG(SPACE)     &kp LC(LS(TAB))  &kp LC(TAB)   &kp LG(W)          &kp LG(LS(T))                                     &kp LG(V)        &kp LEFT         &macro_vis_enter          &kp LG(Z)                 &kp RIGHT      &kp LS(LG(RIGHT))
+&kp LG(RIGHT)      &kp LG(Z)         &kp LG(V)        &kp LG(C)     &kp LG(LS(Z))      &kp LS(LA(DOWN))                                  &kp LG(LEFT)     &kp LA(LEFT)     &kp DOWN                  &kp UP                    &kp LA(RIGHT)  &kp LG(RIGHT)
+&kp LS(LA(UP))     &kp LS(LA(LEFT))  &kp LS(UP)       &kp LS(DOWN)  &kp LS(LA(RIGHT))  &kp LS(LA(DOWN))  &trans                  &trans  &macro_cut_line  &macro_cut_word  &macro_insert_line_below  &macro_insert_line_above  &kp LG(LS(Z))  &macro_cut_line_end
+                                                                    &trans             &trans            &trans  &trans  &trans  &trans  &trans           &trans
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
         command_num_lay {
@@ -481,7 +432,7 @@
 &kp Copy  &kp N1    &kp N2    &kp N3     &kp N4     &kp N5                                        &kp N6     &kp N7    &kp N8  &kp N9    &kp N0     &trans
 &kp Cut   &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT  &kp Paste                                     &kp PG_UP  &kp LEFT  &kp UP  &kp DOWN  &kp RIGHT  &kp PG_DN
 &trans    &kp F1    &kp F2    &kp F3     &kp F4     &kp F5     &kp Undo                 &kp Redo  &kp F6     &kp F7    &kp F8  &kp F9    &kp F10    &kp RCTRL
-                                         &trans     &trans     &trans    &trans  &mo 7  &trans    &trans     &trans
+                                         &trans     &trans     &trans    &trans  &mo 8  &trans    &trans     &trans
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -501,28 +452,6 @@
 &sys_reset  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                                      &none        &none    &none         &none            &none              &sys_reset
 &none       &kp LGUI      &kp LALT      &kp LCTRL     &kp LSHIFT    &none         &bt BT_CLR                  &none   &none        &none    &out OUT_USB  &out OUT_BLE     &none              &bootloader
                                                       &trans        &trans        &trans      &trans  &trans  &trans  &trans       &trans
-            >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
-        };
-
-        text_navigation {
-            bindings = <
-&kp LS(LG(RIGHT))  &kp LG(SPACE)     &kp LC(LS(TAB))  &kp LC(TAB)   &kp LG(W)          &kp LG(LS(T))                                     &kp LG(V)        &kp LEFT         &macro_vis_enter          &kp LG(Z)                 &kp RIGHT      &kp LS(LG(RIGHT))
-&kp LG(RIGHT)      &kp LG(Z)         &kp LG(V)        &kp LG(C)     &kp LG(LS(Z))      &kp LS(LA(DOWN))                                  &kp LG(LEFT)     &kp LA(LEFT)     &kp DOWN                  &kp UP                    &kp LA(RIGHT)  &kp LG(RIGHT)
-&kp LS(LA(UP))     &kp LS(LA(LEFT))  &kp LS(UP)       &kp LS(DOWN)  &kp LS(LA(RIGHT))  &kp LS(LA(DOWN))  &trans                  &trans  &macro_cut_line  &macro_cut_word  &macro_insert_line_below  &macro_insert_line_above  &kp LG(LS(Z))  &macro_cut_line_end
-                                                                    &trans             &trans            &trans  &trans  &trans  &trans  &trans           &trans
-            >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
-        };
-
-        visual_navigation {
-            bindings = <
-&kp LS(LG(RIGHT))  &kp LG(SPACE)     &kp LC(LS(TAB))  &kp LC(TAB)      &kp LG(W)          &kp LG(LS(T))                                      &kp LG(LS(LEFT))        &kp LA(LS(LEFT))         &tog CMD_NAV_L_L  &kp LG(Z)        &kp LS(RIGHT)             &kp LS(LG(RIGHT))
-&kp LG(LS(RIGHT))  &kp LG(Z)         &macro_vis_cut   &macro_vis_copy  &kp LG(LS(Z))      &kp LS(LA(DOWN))                                   &kp LG(LS(LEFT))        &kp LS(LEFT)             &kp LS(DOWN)      &kp LS(UP)       &kp LA(LS(RIGHT))         &kp LG(RIGHT)
-&kp LS(LA(UP))     &kp LS(LA(LEFT))  &kp LS(UP)       &kp LS(DOWN)     &kp LS(LA(RIGHT))  &kp LS(LA(DOWN))  &trans                   &trans  &macro_vis_wrap_parens  &macro_vis_wrap_dquotes  &macro_vis_cut    &macro_vis_copy  &macro_vis_wrap_brackets  &macro_vis_wrap_braces
-                                                      &trans           &trans             &trans            &trans                   &trans  &tog CMD_NAV_L_L        &trans                   &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
