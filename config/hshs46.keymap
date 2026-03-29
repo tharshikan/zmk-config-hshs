@@ -23,6 +23,7 @@
 #define CMD_NUM_L 10
 #define CMD_NUM_L2 11
 #define TEXT_NAV_L 12
+#define VIS_NAV_L 13
 #define Undo   LC(Z)
 #define Cut    LC(X)
 #define Copy   LC(C)
@@ -291,8 +292,68 @@
             #binding-cells = <0>;
             wait-ms = <5>;
             tap-ms = <5>;
-            bindings = <&mac_sel_word>;
+            bindings = <&mac_sel_word>, <&tog VIS_NAV_L>;
             display-name = "Visual Mode Enter";
+        };
+
+        macro_vis_wrap_parens: macro_vis_wrap_parens {
+            compatible = "zmk,behavior-macro";
+            label = "macro_vis_wrap_parens";
+            #binding-cells = <0>;
+            wait-ms = <5>;
+            tap-ms = <5>;
+            bindings = <&kp LG(X)>, <&kp LS(N9)>, <&kp LG(V)>, <&kp LS(N0)>, <&tog VIS_NAV_L>;
+            display-name = "Visual Wrap Parens ()";
+        };
+
+        macro_vis_wrap_brackets: macro_vis_wrap_brackets {
+            compatible = "zmk,behavior-macro";
+            label = "macro_vis_wrap_brackets";
+            #binding-cells = <0>;
+            wait-ms = <5>;
+            tap-ms = <5>;
+            bindings = <&kp LG(X)>, <&kp LBKT>, <&kp LG(V)>, <&kp RBKT>, <&tog VIS_NAV_L>;
+            display-name = "Visual Wrap Brackets []";
+        };
+
+        macro_vis_wrap_braces: macro_vis_wrap_braces {
+            compatible = "zmk,behavior-macro";
+            label = "macro_vis_wrap_braces";
+            #binding-cells = <0>;
+            wait-ms = <5>;
+            tap-ms = <5>;
+            bindings = <&kp LG(X)>, <&kp LS(LBKT)>, <&kp LG(V)>, <&kp LS(RBKT)>, <&tog VIS_NAV_L>;
+            display-name = "Visual Wrap Braces {}";
+        };
+
+        macro_vis_wrap_dquotes: macro_vis_wrap_dquotes {
+            compatible = "zmk,behavior-macro";
+            label = "macro_vis_wrap_dquotes";
+            #binding-cells = <0>;
+            wait-ms = <5>;
+            tap-ms = <5>;
+            bindings = <&kp LG(X)>, <&kp LS(SQT)>, <&kp LG(V)>, <&kp LS(SQT)>, <&tog VIS_NAV_L>;
+            display-name = "Visual Wrap Quotes DQT";
+        };
+
+        macro_vis_copy: macro_vis_copy {
+            compatible = "zmk,behavior-macro";
+            label = "macro_vis_copy";
+            #binding-cells = <0>;
+            wait-ms = <5>;
+            tap-ms = <5>;
+            bindings = <&kp LG(C)>, <&tog VIS_NAV_L>;
+            display-name = "Visual Copy & Exit";
+        };
+
+        macro_vis_cut: macro_vis_cut {
+            compatible = "zmk,behavior-macro";
+            label = "macro_vis_cut";
+            #binding-cells = <0>;
+            wait-ms = <5>;
+            tap-ms = <5>;
+            bindings = <&kp LG(X)>, <&tog VIS_NAV_L>;
+            display-name = "Visual Cut & Exit";
         };
 
         macro_insert_line_below: macro_insert_line_below {
@@ -451,6 +512,17 @@
 &kp LG(RIGHT)      &kp LG(Z)         &kp LG(V)        &kp LG(C)     &kp LG(LS(Z))      &kp LS(LA(DOWN))                                  &kp LG(LEFT)     &kp LA(LEFT)     &kp DOWN                  &kp UP                    &kp LA(RIGHT)  &kp LG(RIGHT)
 &kp LS(LA(UP))     &kp LS(LA(LEFT))  &kp LS(UP)       &kp LS(DOWN)  &kp LS(LA(RIGHT))  &kp LS(LA(DOWN))  &trans                  &trans  &macro_cut_line  &macro_cut_word  &macro_insert_line_below  &macro_insert_line_above  &kp LG(LS(Z))  &macro_cut_line_end
                                                                     &trans             &trans            &trans  &trans  &trans  &trans  &trans           &trans
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+        };
+
+        visual_navigation {
+            bindings = <
+&kp LS(LG(RIGHT))  &kp LG(SPACE)     &kp LC(LS(TAB))  &kp LC(TAB)      &kp LG(W)          &kp LG(LS(T))                                      &kp LG(LS(LEFT))        &kp LA(LS(LEFT))         &tog CMD_NAV_L_L  &kp LG(Z)        &kp LS(RIGHT)             &kp LS(LG(RIGHT))
+&kp LG(LS(RIGHT))  &kp LG(Z)         &macro_vis_cut   &macro_vis_copy  &kp LG(LS(Z))      &kp LS(LA(DOWN))                                   &kp LG(LS(LEFT))        &kp LS(LEFT)             &kp LS(DOWN)      &kp LS(UP)       &kp LA(LS(RIGHT))         &kp LG(RIGHT)
+&kp LS(LA(UP))     &kp LS(LA(LEFT))  &kp LS(UP)       &kp LS(DOWN)     &kp LS(LA(RIGHT))  &kp LS(LA(DOWN))  &trans                   &trans  &macro_vis_wrap_parens  &macro_vis_wrap_dquotes  &macro_vis_cut    &macro_vis_copy  &macro_vis_wrap_brackets  &macro_vis_wrap_braces
+                                                      &trans           &trans             &trans            &trans                   &trans  &tog CMD_NAV_L_L        &trans                   &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
