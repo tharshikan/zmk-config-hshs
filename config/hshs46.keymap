@@ -456,5 +456,16 @@
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
+
+        visual_navigation {
+            bindings = <
+&kp LS(LG(RIGHT))  &kp LG(SPACE)     &kp LC(LS(TAB))  &kp LC(TAB)      &kp LG(W)          &kp LG(LS(T))                                      &kp LG(LS(LEFT))        &kp LA(LS(LEFT))         &tog CMD_NAV_L_L  &kp LG(Z)        &kp LS(RIGHT)             &kp LS(LG(RIGHT))
+&kp LG(LS(RIGHT))  &kp LG(Z)         &macro_vis_cut   &macro_vis_copy  &kp LG(LS(Z))      &kp LS(LA(DOWN))                                   &kp LG(LS(LEFT))        &kp LS(LEFT)             &kp LS(DOWN)      &kp LS(UP)       &kp LA(LS(RIGHT))         &kp LG(RIGHT)
+&kp LS(LA(UP))     &kp LS(LA(LEFT))  &kp LS(UP)       &kp LS(DOWN)     &kp LS(LA(RIGHT))  &kp LS(LA(DOWN))  &trans                   &trans  &macro_vis_wrap_parens  &macro_vis_wrap_dquotes  &macro_vis_cut    &macro_vis_copy  &macro_vis_wrap_brackets  &macro_vis_wrap_braces
+                                                      &trans           &trans             &trans            &trans                   &trans  &tog CMD_NAV_L_L        &trans                   &trans
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+        };
     };
 };
